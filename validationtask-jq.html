@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+</head>
+
+<body>
+    <div class="container">
+        <h1>Form validation</h1>
+        <div class="row d-flex justify-content-center">
+
+            <div class="col-12" style="padding:10px;">
+                <td>Select First city</td>
+                <td><select name="" id="id1" >
+                        <option value=""></option>
+                        <option value="dhar">dhar</option>
+                        <option value="Bhopal">Bhopal</option>
+                        <option value="Sujalpur">Indore</option>
+                        <option value="Sajapur">Sajapur</option>
+                    </select></td>
+                    <h3 id="Check1"></h3>
+            </div>
+
+            <div class="col-12" style="padding:10px;">
+                <td>Select Second city</td>
+                <td><select name="" id="id2"  disabled>
+                        <option value="" selected></option>
+                        <option value="dhar">dhar</option>
+                        <option value="Bhopal">Bhopal</option>
+                        <option value="Sujalpur">Indore</option>
+                        <option value="Sajapur">Sajapur</option>
+                    </select></td>
+            </div>
+
+            <div class="col-12" style="padding:10px;">
+                <td>Select Third city</td>
+                <td><select name="" id="id3"   disabled>
+                        <option value=""></option>
+                        <option value="dhar">dhar</option>
+                        <option value="Bhopal">Bhopal</option>
+                        <option value="Sujalpur">Indore</option>
+                        <option value="Sajapur">Sajapur</option>
+                    </select></td>
+            </div>
+
+            <div class="col-12" style="padding:10px;">
+
+                <td> <button type="submit" id="submit"> Submit </button>
+                </td>
+            </div>
+            <h1 class="col-12" id="demo" style="padding:10px;">
+
+            </h1>
+
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+  $(document).ready(function(){
+$("#id1").change(function(){
+    var id1=$("#id1").val();
+    // console.log(id1)
+    var id2=$("#id2");
+    if (id1 != "") {
+      id2.removeAttr("disabled")
+    }
+})
+
+$("#id2").change(function(){
+var id2=$("#id2").val();
+var id3=$("#id3");
+if (id2 != "") {
+  id3.removeAttr('disabled')
+}
+})
+
+
+$("#id3").change(function(){
+    var id3=$("id3").val();
+})
+
+      var id1=$("#id1").val();
+              len=id1.length;
+              // console.log(len);
+      var id2=$("#id2");
+      var id3=$("id3");
+
+        var submit=$("#submit");
+        var check1=$("#Check1");
+
+        $("#submit").click(function(){
+          var id1=$("#id1").val();
+          var id2=$("#id2").val();
+          var id3=$("#id3").val();
+          var demo=$("#demo");
+
+
+          if(id1.length == 0){
+            check1.html("please select 1 option");
+          } else if (id1.length > 0) {
+                  $("#check1").html("");
+                    if (id1 == id2) {
+                    demo.html("please select unique value");
+                    } else if (id1 == id3) {
+                      demo.html("please select unique value");
+                    } else if (id2 == id3 && id2 != "") {
+                        demo.html("please select unique value");
+                    } else if (id2 == "" && id1 != "" &&  id3 != "") {
+                        demo.html("please fill city in sequence");
+                    }
+                    else {
+                        alert("your data is saved ")
+                        demo.html("")
+                    }
+          }
+        })
+
+        $("#id1").change(function(){
+            check1.html="";
+        })
+
+    //       submit.addEventListener("click",function myFunction() {
+    //         var id1=document.getElementById("id1").value;
+    //         var id2=document.getElementById("id2").value;
+    //         var id3=document.getElementById("id3").value;
+    //         var demo=document.getElementById("demo");
+    //             if(id1.length == 0){
+    //               Check1.innerHTML="please select 1 option";
+    //             } else if (id1.length > 0) {
+    //                     Check1.innerHTML="";
+    //                 console.log(id1.len)
+    //                       if (id1 == id2) {
+    //                       demo.innerHTML="please select unique value"
+    //                       } else if (id1 == id3) {
+    //                         demo.innerHTML="please select unique value"
+    //                       } else if (id2 == id3 && id2 != "") {
+    //                           demo.innerHTML="please select unique value"
+    //                       } else if (id2 == "" && id1 != "" &&  id3 != "") {
+    //                           demo.innerHTML="please fill city"
+    //                       }
+    //                       else {
+    //                           alert("your data is saved ")
+    //                           demo.innerHTML=""
+    //                       }
+    //             }
+    //        }  );
+    // //
+    //     var id1=document.getElementById("id1");
+    //
+    //     id1.addEventListener("change",function(){
+    //       // console.log("hi")
+    //        Check1.innerHTML="";
+    //     })
+
+  })
+
+
+  //
+  // function getSelectvalue2(){
+  //   var id2=document.getElementById("id2").value;
+  //
+  //   var id3=document.getElementById("id3");
+  //   if (id2 != "") {
+  //     id3.removeAttribute('disabled')
+  //   }
+  // }
+  // function getSelectvalue3(){
+  //   var id3=document.getElementById("id3").value;
+  //
+  // }
+  //     var id1=document.getElementById("id1").value;
+  //           len=id1.length;
+  //           console.log(len);
+  //     var id2=document.getElementById("id2");
+  //     var id3=document.getElementById("id3");
+  //
+  //     var submit=document.getElementById("submit");
+  //     var Check1=document.getElementById("Check1");
+  //
+  //       submit.addEventListener("click",function myFunction() {
+  //         var id1=document.getElementById("id1").value;
+  //         var id2=document.getElementById("id2").value;
+  //         var id3=document.getElementById("id3").value;
+  //         var demo=document.getElementById("demo");
+  //             if(id1.length == 0){
+  //               Check1.innerHTML="please select 1 option";
+  //             } else if (id1.length > 0) {
+  //                     Check1.innerHTML="";
+  //                 console.log(id1.len)
+  //                       if (id1 == id2) {
+  //                       demo.innerHTML="please select unique value"
+  //                       } else if (id1 == id3) {
+  //                         demo.innerHTML="please select unique value"
+  //                       } else if (id2 == id3 && id2 != "") {
+  //                           demo.innerHTML="please select unique value"
+  //                       } else if (id2 == "" && id1 != "" &&  id3 != "") {
+  //                           demo.innerHTML="please fill city"
+  //                       }
+  //                       else {
+  //                           alert("your data is saved ")
+  //                           demo.innerHTML=""
+  //                       }
+  //             }
+  //       }  );
+  //
+  //     var id1=document.getElementById("id1");
+  //
+  //     id1.addEventListener("change",function(){
+  //       // console.log("hi")
+  //        Check1.innerHTML="";
+  //     })
+
+
+
+    </script>
+</body>
+</html>

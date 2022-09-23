@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/style11.css">
+</head>
+<body>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-5">
+
+        <div class="calculater">
+        <h1>calculater</h1>
+        <input type="text" name=""  id="screen" value="">
+        <table>
+          <tr>
+            <td><button type="button" name="button"></button></td>
+            <td><button type="button" name="button"></button></td>
+            <td><button type="button" name="button">C</button></td>
+            <td><button type="button" name="button">%</button></td>
+          </tr>
+
+          <tr>
+            <td><button type="button" name="button">7</button></td>
+            <td><button type="button" name="button">8</button></td>
+            <td><button type="button" name="button">9</button></td>
+            <td><button type="button" name="button">*</button></td>
+          </tr>
+
+          <tr>
+            <td><button type="button" name="button">4</button></td>
+            <td><button type="button" name="button">5</button></td>
+            <td><button type="button" name="button">6</button></td>
+            <td><button type="button" name="button">-</button></td>
+          </tr>
+
+          <tr>
+            <td><button type="button" name="button">1</button></td>
+            <td><button type="button" name="button">2</button></td>
+            <td><button type="button" name="button">3</button></td>
+            <td><button type="button" name="button">+</button></td>
+          </tr>
+
+          <tr>
+            <td><button type="button" name="">/</button></td>
+            <td><button type="button" name="button">0</button></td>
+            <td><button type="button" name="button">.</button></td>
+            <td><button type="button" name="button">=</button></td>
+          </tr>
+
+        </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+    let screen = document.getElementById("screen");
+    buttons =document.querySelectorAll('button');
+    let screenValue='';
+
+    for (item of buttons){
+         item.addEventListener('click',(e)=>{
+           // console.log(item);
+         buttonText = e.target.innerText;
+
+          if (buttonText == 'C') {
+           screenValue="";
+           screen.value=screenValue;
+         } else if (buttonText == '=') {
+           screen.value=eval(screenValue);
+           return screenValue="";
+         } else {
+           screenValue += buttonText;
+           screen.value = screenValue;
+           if (buttonText == '*') {
+           var myArray = screenValue.split("*");
+              k="*";
+              z="";
+             for (var i = 0; i < myArray.length; i++) {
+               a=myArray[i]
+                 if (a != "") {
+                   console.log(a)
+                  z=z+a+k;
+                 screen.value=z;
+               }
+               }
+               return screenValue=z;
+           } else if (buttonText == '%') {
+             var myArray = screenValue.split("%");
+                k="%";
+                z="";
+               for (var i = 0; i < myArray.length; i++) {
+                 a=myArray[i]
+                   if (a != "") {
+                     z=z+a+k;
+                    screen.value=z;
+                   }
+               }
+               return screenValue=z;
+           } else if (buttonText == '+') {
+             var myArray = screenValue.split("+");
+                k="+";
+                z="";
+               for (var i = 0; i < myArray.length; i++) {
+                 a=myArray[i]
+                   if (a != "") {
+                     z=z+a+k;
+                     screen.value=z;
+                   }
+               }
+               return screenValue=z;
+
+           } else if (buttonText == '-') {
+             var myArray = screenValue.split("-");
+                k="-";
+                z="";
+               for (var i = 0; i < myArray.length; i++) {
+                 a=myArray[i]
+                   if (a != "") {
+                     z=z+a+k;
+                     screen.value=z;
+                   }
+               }
+               return screenValue=z;
+           } else if (buttonText == '/') {
+             var myArray = screenValue.split("/");
+                k="/";
+                z="";
+               for (var i = 0; i < myArray.length; i++) {
+                 a=myArray[i]
+                   if (a != "") {
+                     z=z+a+k;
+                    screen.value=z;
+                   }
+               }
+               return screenValue=z;
+            } else if (buttonText == '.') {
+              var myArray = screenValue.split(".");
+                 k=".";
+                 z="";
+                for (var i = 0; i < myArray.length; i++) {
+                  a=myArray[i]
+                    if (a != "") {
+                      z=z+a+k;
+                     screen.value=z;
+                    }
+                }
+                return screenValue=z;
+             }
+         }
+       })
+    }
+  </script>
+</body>
+</html>
